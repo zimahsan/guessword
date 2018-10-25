@@ -64,3 +64,6 @@ gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'redis', '~> 3.3', '>= 3.3.1'
 gem 'jquery-rails'
+gem 'simple_form'
+gem 'slim'
+gem "cocoon"
