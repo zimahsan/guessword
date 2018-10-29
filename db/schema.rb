@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_080927) do
+ActiveRecord::Schema.define(version: 2018_10_24_093835) do
 
   create_table "chat_rooms", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2018_10_24_080927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_chat_rooms_on_user_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.string "game_name"
+    t.string "game_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -28,6 +37,16 @@ ActiveRecord::Schema.define(version: 2018_10_24_080927) do
     t.datetime "updated_at", null: false
     t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "game_id"
+    t.string "question_field"
+    t.string "question_answer"
+    t.string "answer_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_questions_on_game_id"
   end
 
   create_table "users", force: :cascade do |t|

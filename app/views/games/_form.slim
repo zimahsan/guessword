@@ -1,0 +1,14 @@
+
+= simple_form_for @game do |f|
+  = f.input :name
+  = f.input :image
+  = f.input :game_name
+  = f.input :game_type
+
+  #questions
+  
+    = f.simple_fields_for :questions do |question|
+      = render 'question_fields', f: question
+    .links
+      = link_to_add_association 'add question', f, :questions
+  = f.submit
